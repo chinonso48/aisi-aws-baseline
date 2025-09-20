@@ -87,7 +87,9 @@ variable "vpc_ids" {
 
 # Optional: buckets created in-account that should have SSE-KMS defaults set
 variable "s3_bucket_names" {
-  type    = list(string)
-  default = []
+  type        = list(string)
+  default     = []
+  description = "Buckets created in-account that should have SSE-KMS defaults set"
 }
+
 
