@@ -1,6 +1,6 @@
 
 locals {
-  use_local_ebs_key  = var.create_kms_for_ebs  && var.kms_ebs_key_arn  == ""
+  use_local_ebs_key  = var.create_kms_for_ebs && var.kms_ebs_key_arn == ""
   use_local_logs_key = var.create_kms_for_logs && var.kms_logs_key_arn == ""
   use_local_data_key = var.create_kms_for_data && var.kms_data_key_arn == ""
 }
