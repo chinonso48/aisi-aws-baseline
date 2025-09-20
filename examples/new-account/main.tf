@@ -21,24 +21,21 @@ module "baseline" {
   logging_account_id  = var.logging_account_id
   logging_bucket_name = var.logging_bucket_name
 
-  vpc_ids          = var.vpc_ids
-  s3_bucket_names  = var.s3_bucket_names
+  vpc_ids         = var.vpc_ids
+  s3_bucket_names = var.s3_bucket_names
 
-  # Required KMS key for CW Logs
   cloudwatch_logs_kms_key_arn = var.cloudwatch_logs_kms_key_arn
+  kms_ebs_key_arn             = var.kms_ebs_key_arn
+  kms_logs_key_arn            = var.kms_logs_key_arn
+  kms_data_key_arn            = var.kms_data_key_arn
 }
 
-variable "cloudwatch_logs_kms_key_arn" {
-  type        = string
-  description = "KMS key ARN for CloudWatch Logs"
-}
+# Declare these vars so tfvars stops warning
+variable "cloudwatch_logs_kms_key_arn" { type = string }
+variable "kms_ebs_key_arn"             { type = string }
+variable "kms_logs_key_arn"            { type = string }
+variable "kms_data_key_arn"            { type = string }
 
-
-variable "cloudwatch_logs_kms_key_arn" {
-  type        = string
-  description = "KMS key ARN for encrypting CloudWatch Logs"
-  default     = "" # safe default if you want optional
-}
 
 
 # Variables
