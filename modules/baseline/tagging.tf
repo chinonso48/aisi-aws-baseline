@@ -1,6 +1,13 @@
 
 data "aws_iam_policy_document" "trust_config" {
-  statement { actions = ["sts:AssumeRole"]; principals { type = "Service" identifiers = ["config.amazonaws.com"] } }
+  statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["config.amazonaws.com"]
+    }
+  }
 }
 
 resource "aws_iam_role" "config" {
