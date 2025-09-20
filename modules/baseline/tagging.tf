@@ -32,13 +32,20 @@ resource "aws_config_configuration_recorder_status" "this" {
 }
 
 resource "aws_config_config_rule" "required_tags" {
-  name = "aisi-required-tags"
-  source { owner = "AWS" source_identifier = "REQUIRED_TAGS" }
+  name = "required-tags"
+
+  source {
+    owner             = "AWS"
+    source_identifier = "REQUIRED_TAGS"
+  }
+
   input_parameters = jsonencode({
     tag1Key = "Environment"
     tag2Key = "Owner"
     tag3Key = "CostCenter"
+    tag4Key = "DataClass"
   })
 }
+
 
 # (Optional) Auto-remediation outline: see docs/remediation-outline.md
