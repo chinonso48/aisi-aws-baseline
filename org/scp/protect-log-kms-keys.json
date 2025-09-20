@@ -1,0 +1,14 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyLogKeyDeletionAndDisable",
+      "Effect": "Deny",
+      "Action": ["kms:ScheduleKeyDeletion","kms:DisableKey"],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": { "aws:ResourceTag/Purpose": "LogEncryption" }
+      }
+    }
+  ]
+}

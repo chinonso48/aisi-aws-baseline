@@ -1,0 +1,14 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyS3PublicPoliciesAndACLs",
+      "Effect": "Deny",
+      "Action": [
+        "s3:PutBucketAcl",
+        "s3:PutBucketPolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "tags": {
+    "Environment": { "enforced_for": ["ec2:instance","s3:bucket","rds:db"] },
+    "Owner": { "enforced_for": ["*"] },
+    "CostCenter": { "enforced_for": ["*"] },
+    "DataClass": { "enforced_for": ["s3:bucket","rds:db","dynamodb:table"] }
+  }
+}
