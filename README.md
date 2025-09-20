@@ -5,4 +5,4 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Baseline AWS account security controls for **AI Security Institute (AISI)** challenge submission.  
-Implements **centralized logging, KMS encryption defaults, tagging enforcement, and SCP guardrails**.
+Implements **centralised logging, KMS encryption defaults, tagging enforcement, and SCP guardrails**.
