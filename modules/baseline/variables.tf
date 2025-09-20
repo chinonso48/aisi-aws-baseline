@@ -74,4 +74,19 @@ variable "auto_tag_defaults" {
 }
 
 variable "approved_regions" {
-  type
+  type    = list(string)
+  default = ["eu-west-2", "eu-west-1", "eu-central-1"]
+}
+
+# Optional: flow logs across multiple VPCs
+variable "vpc_ids" {
+  type        = list(string)
+  default     = []
+  description = "VPC IDs to enable Flow Logs for (leave empty to skip)"
+}
+
+# Optional: buckets created in-account that should have SSE-KMS defaults set
+variable "s3_bucket_names" {
+  type    = list(string)
+  default = []
+}
