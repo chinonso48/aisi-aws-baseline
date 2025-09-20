@@ -24,6 +24,9 @@ module "baseline" {
   # Optional inputs
   vpc_ids          = var.vpc_ids
   s3_bucket_names  = var.s3_bucket_names
+
+  # Required KMS for CloudWatch Logs
+  cloudwatch_logs_kms_key_arn = var.cloudwatch_logs_kms_key_arn
 }
 
 # Variables
