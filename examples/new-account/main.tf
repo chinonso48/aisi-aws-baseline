@@ -22,11 +22,15 @@ module "baseline" {
   logging_bucket_name = var.logging_bucket_name
 
   # Optional inputs
-  vpc_ids                  = var.vpc_ids
-  s3_bucket_names          = var.s3_bucket_names
+  vpc_ids                     = var.vpc_ids
+  s3_bucket_names             = var.s3_bucket_names
   cloudwatch_logs_kms_key_arn = var.cloudwatch_logs_kms_key_arn
+  kms_ebs_key_arn             = var.kms_ebs_key_arn
+  kms_logs_key_arn            = var.kms_logs_key_arn
+  kms_data_key_arn            = var.kms_data_key_arn
 }
 
+# KMS-related variables (so tfvars stops warning)
 variable "cloudwatch_logs_kms_key_arn" {
   type        = string
   description = "KMS key ARN used to encrypt CloudWatch Logs (may be local or shared)"
@@ -34,21 +38,26 @@ variable "cloudwatch_logs_kms_key_arn" {
 }
 
 
-  cloudwatch_logs_kms_key_arn = var.cloudwatch_logs_kms_key_arn
-  kms_ebs_key_arn             = var.kms_ebs_key_arn
-  kms_logs_key_arn            = var.kms_logs_key_arn
-  kms_data_key_arn            = var.kms_data_key_arn
+variable "kms_ebs_key_arn" {
+  type        = string
+  description = "Optional pre-existing KMS key ARN for EBS encryption"
+  default     = ""
 }
 
-# Declare these vars so tfvars stops warning
-variable "cloudwatch_logs_kms_key_arn" { type = string }
-variable "kms_ebs_key_arn"             { type = string }
-variable "kms_logs_key_arn"            { type = string }
-variable "kms_data_key_arn"            { type = string }
+variable "kms_logs_key_arn" {
+  type        = string
+  description = "Optional pre-existing KMS key ARN for logs encryption"
+  default     = ""
+}
+
+variable "kms_data_key_arn" {
+  type        = string
+  description = "Optional pre-existing KMS key ARN for application data encryption"
+  default     = ""
+}
 
 
-
-# Variables
+# Core variables
 variable "account_id" {
   type = string
 }
@@ -83,3 +92,4 @@ variable "s3_bucket_names" {
   default     = []
   description = "Buckets created in-account that should have SSE-KMS defaults set"
 }
+
