@@ -21,13 +21,18 @@ module "baseline" {
   logging_account_id  = var.logging_account_id
   logging_bucket_name = var.logging_bucket_name
 
-  # Optional inputs
   vpc_ids          = var.vpc_ids
   s3_bucket_names  = var.s3_bucket_names
 
-  # Required KMS for CloudWatch Logs
+  # Required KMS key for CW Logs
   cloudwatch_logs_kms_key_arn = var.cloudwatch_logs_kms_key_arn
 }
+
+variable "cloudwatch_logs_kms_key_arn" {
+  type        = string
+  description = "KMS key ARN for CloudWatch Logs"
+}
+
 
 variable "cloudwatch_logs_kms_key_arn" {
   type        = string
