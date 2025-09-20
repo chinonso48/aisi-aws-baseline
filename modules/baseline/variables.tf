@@ -22,7 +22,9 @@ variable "logging_bucket_name" {
 variable "cloudwatch_logs_kms_key_arn" {
   type        = string
   description = "KMS key ARN used to encrypt CloudWatch Logs (may be local or shared)"
+  default     = ""
 }
+
 
 variable "create_kms_for_ebs" {
   type    = bool
