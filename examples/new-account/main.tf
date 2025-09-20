@@ -29,5 +29,9 @@ variable "security_account_id" { type = string }
 variable "logging_account_id"  { type = string }
 variable "logging_bucket_name" { type = string }
 variable "cloudwatch_logs_kms_key_arn" { type = string }
-variable "vpc_ids"             { type = list(string)  default = [] }
+variable "vpc_ids" {
+  type        = list(string)
+  default     = []
+  description = "VPC IDs to enable Flow Logs for (leave empty to skip)"
+}
 variable "s3_bucket_names"     { type = list(string)  default = [] }
