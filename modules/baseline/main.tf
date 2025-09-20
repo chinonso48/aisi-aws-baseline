@@ -15,7 +15,7 @@ provider "aws" {
 
 # KMS keys and defaults
 module "kms" { 
-source = "./"; } 
+source = "./" } 
 # keys live in kms.tf
 } 
 # EBS defaults
