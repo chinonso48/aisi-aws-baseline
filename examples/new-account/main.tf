@@ -21,7 +21,7 @@ module "baseline" {
   logging_account_id  = var.logging_account_id
   logging_bucket_name = var.logging_bucket_name
 
-  # optional
+  # Optional inputs
   vpc_ids          = var.vpc_ids
   s3_bucket_names  = var.s3_bucket_names
 }
@@ -61,5 +61,3 @@ variable "s3_bucket_names" {
   default     = []
   description = "Buckets created in-account that should have SSE-KMS defaults set"
 }
-
-
