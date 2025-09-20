@@ -47,7 +47,14 @@ resource "aws_cloudwatch_log_group" "vpc_flow" {
 }
 
 data "aws_iam_policy_document" "trust_vpcflow" {
-  statement { actions = ["sts:AssumeRole"]; principals { type = "Service" identifiers = ["vpc-flow-logs.amazonaws.com"] } }
+  statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["vpc-flow-logs.amazonaws.com"]
+    }
+  }
 }
 
 resource "aws_iam_role" "vpc_flow" {
