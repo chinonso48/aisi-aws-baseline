@@ -14,10 +14,7 @@ provider "aws" {
 }
 
 # KMS keys and defaults
-module "kms" { 
-source = "../kms"
-# keys live in kms.tf
-} 
+
 # EBS defaults
 # logging (CloudTrail + Flow Logs + GuardDuty)
 # s3 encryption defaults
