@@ -21,8 +21,18 @@ module "baseline" {
   logging_account_id  = var.logging_account_id
   logging_bucket_name = var.logging_bucket_name
 
-  vpc_ids         = var.vpc_ids
-  s3_bucket_names = var.s3_bucket_names
+  # Optional inputs
+  vpc_ids                  = var.vpc_ids
+  s3_bucket_names          = var.s3_bucket_names
+  cloudwatch_logs_kms_key_arn = var.cloudwatch_logs_kms_key_arn
+}
+
+variable "cloudwatch_logs_kms_key_arn" {
+  type        = string
+  description = "KMS key ARN used to encrypt CloudWatch Logs (may be local or shared)"
+  default     = ""
+}
+
 
   cloudwatch_logs_kms_key_arn = var.cloudwatch_logs_kms_key_arn
   kms_ebs_key_arn             = var.kms_ebs_key_arn
