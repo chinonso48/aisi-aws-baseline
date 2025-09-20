@@ -29,6 +29,13 @@ module "baseline" {
   cloudwatch_logs_kms_key_arn = var.cloudwatch_logs_kms_key_arn
 }
 
+variable "cloudwatch_logs_kms_key_arn" {
+  type        = string
+  description = "KMS key ARN for encrypting CloudWatch Logs"
+  default     = "" # safe default if you want optional
+}
+
+
 # Variables
 variable "account_id" {
   type = string
