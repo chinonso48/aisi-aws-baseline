@@ -6,7 +6,14 @@ resource "aws_cloudwatch_log_group" "trail" {
 }
 
 data "aws_iam_policy_document" "trust_cloudtrail" {
-  statement { actions = ["sts:AssumeRole"]; principals { type = "Service" identifiers = ["cloudtrail.amazonaws.com"] } }
+  statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["cloudtrail.amazonaws.com"]
+    }
+  }
 }
 
 resource "aws_iam_role" "trail_to_cw" {
